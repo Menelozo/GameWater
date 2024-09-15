@@ -11,5 +11,15 @@ public class EndingWindow : MonoBehaviour
         {
             Loader.LoadScene("MainMenu");
         }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                Loader.LoadScene("MainMenu");
+            }
+        }
     }
 }

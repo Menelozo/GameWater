@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 public class PlayerControl : MonoBehaviour
 {
+    public Joystick joystick;
+
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer playerRenderer;
     [SerializeField] SpriteRenderer dropRenderer;
@@ -60,8 +62,8 @@ public class PlayerControl : MonoBehaviour
     {
         levelGrid.PlayerMoved(GetGridPosition());
         
-        float dX = Input.GetAxis("Horizontal");
-        float dY = Input.GetAxis("Vertical");
+        float dX = /*Input.GetAxis("Horizontal")*/ joystick.Horizontal;
+        float dY = /*Input.GetAxis("Vertical")*/ joystick.Vertical;
         Vector2 movement = new(dX, dY);
         rb.velocity = movement * moveSpeed;
     }

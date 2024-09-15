@@ -7,10 +7,13 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public BannerAd bannerAd;
+
     public void PlayGame()
     {
         Score.ResetRestarts();
         Score.ResetSavedLevel();
+        bannerAd.DestroyBanner();
         SceneManager.LoadSceneAsync(2);
     }
 
